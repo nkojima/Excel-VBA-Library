@@ -11,7 +11,7 @@ Private httpObj As Object
 ' コンストラクタ
 '--------------------------------------------------------------------------------
 Public Sub Class_Initialize()
-    Set httpObj = CreateObject("MSXML2.ServerXMLHTTP")
+    Set httpObj = CreateObject("MSXML2.ServerXMLHTTP")    ' TLS1.2に対応
 End Sub
 ​
 '--------------------------------------------------------------------------------
