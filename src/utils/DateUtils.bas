@@ -7,34 +7,34 @@ Option Explicit
 '--------------------------------------------------------------------------------
 ' 引数の日付の会計年度を返す。
 '
-' d：日付。
+' dt：日付。
 ' startMonth：新年度の開始月。新年度が4月から始まる場合は4を指定する。
 ' return：YYYY形式の西暦で表された年度。
 '--------------------------------------------------------------------------------
-Public Function CalcFiscalYear(d As Date, startMonth) As Integer
-    CalcFiscalYear = Year(DateAdd("m", 1 - startMonth, d))
+Public Function CalcFiscalYear(dt As Date, startMonth) As Integer
+    CalcFiscalYear = Year(DateAdd("m", 1 - startMonth, dt))
 End Function
 
 '--------------------------------------------------------------------------------
 ' 引数の日付の月における「月末日」を返す。
 '
-' d：日付。
+' dt：日付。
 ' return：引数で指定した日付における月末日。
 '--------------------------------------------------------------------------------
-Public Function CalcLastDayOfMonth(d As Date)
-  CalcLastDayOfMonth = DateSerial(Year(d), Month(d) + 1, 0)
+Public Function CalcLastDayOfMonth(dt As Date)
+  CalcLastDayOfMonth = DateSerial(Year(dt), Month(dt) + 1, 0)
 End Function
 
 '--------------------------------------------------------------------------------
 ' 引数の日付が属する四半期（1Q,2Q,3Q,4Q）を返す。
 '
-' d：日付。
+' dt：日付。
 ' startMonth：新年度の開始月。新年度が4月から始まる場合は4を指定する。
 ' return：四半期を表す文字列（1Q,2Q,3Q,4Q）。
 '--------------------------------------------------------------------------------
-Public Function CalcQuarter(d As Date, startMonth As Integer) As String
+Public Function CalcQuarter(dt As Date, startMonth As Integer) As String
     Dim monthDiff As Integer, currentMonth As Integer
-    currentMonth = Month(d)
+    currentMonth = Month(dt)
 
     If (currentMonth < startMonth) Then
         monthDiff = 12 - Abs(currentMonth - startMonth)
