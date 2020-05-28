@@ -31,3 +31,13 @@ Public Function ExistsFolder(path As String) As Boolean
         ExistsFolder = False
     End If
 End Function
+
+'--------------------------------------------------------------------------------
+' ファイルパスからファイル名を取得する。
+'
+' path：対象となるファイルパス。
+' return：ファイル名。ファイルが存在しない時は空文字が返される。
+'--------------------------------------------------------------------------------
+Public Function GetBaseName(path As String) As String
+    GetBaseName = Dir(path)
+End Function
