@@ -41,3 +41,23 @@ End Function
 Public Function GetBaseName(path As String) As String
     GetBaseName = Dir(path)
 End Function
+
+'--------------------------------------------------------------------------------
+' ファイルパスから拡張子名を取得する。
+'
+' path：対象となるファイルパス。
+' return：拡張子名。ファイルが存在しない時、拡張子が存在しない時は空文字が返される。
+'--------------------------------------------------------------------------------
+Public Function GetExtensionName(path As String) As String
+    Dim fileName As String
+    fileName = Dir(path)
+    
+    If (fileName <> "") Then
+        Dim periodIdx As Long
+        periodIdx = InStrRev(fileName, ".")
+        GetExtensionName = Mid(fileName, periodIdx + 1)
+    Else
+        ' ファイルが存在しない時は空文字を返す。
+        GetExtensionName = ""
+    End If
+End Function
