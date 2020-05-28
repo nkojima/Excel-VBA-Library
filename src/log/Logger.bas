@@ -56,7 +56,7 @@ End Sub
 ' 「警告」レベルのログを出力する。
 '--------------------------------------------------------------------------------
 Public Sub Warn(message As String)
-    Call Logging(message, "WARNING")
+    Call Logging(message, "WARN")
 End Sub
 
 '--------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ End Sub
 ' ログの出力
 '
 ' message: ログの内容
-' logLevel: ログのレベル（INFO/WARNING/ERROR）
+' logLevel: ログのレベル（INFO/WARN/ERROR）
 '------------------------------------------------------------------------------
 Private Sub Logging(message As String, logLevel As String)
     ' 「A列の最終行」の次の行にログを出力する。
