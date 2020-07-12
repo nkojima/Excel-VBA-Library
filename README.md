@@ -6,13 +6,13 @@ This repository is an reusable Excel VBA components.
 # Components
 
 - log
- - Logger
+  - Logger
 - net
- - HttpClient
+  - HttpClient
 - utils
- - DateUtils
- - DigestUtils
- - StringUtils
+  - DateUtils
+  - DigestUtils
+  - StringUtils
 
 # Author
 nkojima
