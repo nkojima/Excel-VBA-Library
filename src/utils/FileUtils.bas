@@ -33,6 +33,39 @@ Public Function ExistsFolder(path As String) As Boolean
 End Function
 
 '--------------------------------------------------------------------------------
+' 指定したパスが有効なファイルパスであるかを判定する。
+'
+' path：対象となるパス。
+' return：パスがファイルパスであればTrue、そうでなければFalseが返される。
+'--------------------------------------------------------------------------------
+Function IsFile(path As String) As Boolean
+    If (Dir(path) <> "") Then
+        IsFile = True
+    Else
+        IsFile = False
+    End If
+End Function
+
+'--------------------------------------------------------------------------------
+' 指定したパスが有効なフォルダパスであるかを判定する。
+'
+' path：対象となるパス。
+' return：パスがフォルダパスであればTrue、そうでなければFalseが返される。
+'--------------------------------------------------------------------------------
+Function IsFolder(path As String) As Boolean
+    If (Exists(path)) Then
+        ' GetAttr関数でファイル属性を調べる。
+        If (GetAttr(path) = vbDirectory) Then
+            IsFolder = True
+        Else
+            IsFolder = False
+        End If
+    Else
+        IsFolder = False
+    End If
+End Function
+
+'--------------------------------------------------------------------------------
 ' ファイルパスからファイル名を取得する。
 '
 ' path：対象となるファイルパス。
