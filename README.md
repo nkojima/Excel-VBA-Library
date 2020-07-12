@@ -12,6 +12,8 @@ This repository is an reusable Excel VBA components.
 - utils
   - DateUtils
   - DigestUtils
+  - FileUtils
+  - NumberUtils
   - StringUtils
 
 # Author
