@@ -144,6 +144,31 @@ Public Function Repeat(targetString As String, repeatCount As Integer) As String
 End Function
 
 '--------------------------------------------------------------------------------
+' 引数の文字列を循環シフト（circular shift）させる。
+'
+' StringUtils.Rotate("abcdefg", 0) => "abcdefg"
+' StringUtils.Rotate("abcdefg", 2) => "fgabcde"
+' StringUtils.Rotate("abcdefg", -2) => "cdefgab"
+'
+' targetString：循環シフトさせる文字列。
+' shift：シフトさせる文字数。正の値なら右循環シフト、負の値なら左循環シフトとなる。
+'--------------------------------------------------------------------------------
+Public Function Rotate(targetString As String, shift As Long) As String
+    
+    If (shift > 0) Then
+        ' 正の値なら右循環シフト。
+        Rotate = Right(targetString, shift) & Left(targetString, Len(targetString) - shift)
+    
+    ElseIf (shift < 0) Then
+        ' 負の値なら左循環シフト。
+        Rotate = Right(targetString, Len(targetString) - Abs(shift)) & Left(targetString, Abs(shift))
+    Else
+        ' shift=0の時は、引数の文字列をそのまま返す。
+        Rotate = targetString
+    End If
+End Function
+
+'--------------------------------------------------------------------------------
 ' 探索対象の文字列が、指定された接頭辞で始まるかを判定する。
 '
 ' targetString：探索対象の文字列
