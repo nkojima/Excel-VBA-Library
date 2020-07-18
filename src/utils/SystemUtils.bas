@@ -48,7 +48,5 @@ End Function
 ' return：ログインユーザー名。
 '--------------------------------------------------------------------------------
 Public Function GetUserName() As String
-    Dim netObj As Object
-    Set netObj = CreateObject("WScript.Network")
-    GetUserName = netObj.UserName
+    GetUserName = GetUserName = Environ("USERNAME")
 End Function
