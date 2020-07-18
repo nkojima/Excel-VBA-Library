@@ -39,9 +39,7 @@ End Function
 ' return：ホスト名。
 '--------------------------------------------------------------------------------
 Public Function GetHostName() As String
-    Dim netObj As Object
-    Set netObj = CreateObject("WScript.Network")
-    GetHostName = netObj.ComputerName
+    GetHostName = GetHostName = Environ("COMPUTERNAME")
 End Function
 
 '--------------------------------------------------------------------------------
