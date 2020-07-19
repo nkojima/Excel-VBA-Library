@@ -1,6 +1,15 @@
 Option Explicit
 
 '--------------------------------------------------------------------------------
+' CPUの論理コア数（スレッド数）を取得する。
+'
+' return：CPUの論理コア数（スレッド数）。
+'--------------------------------------------------------------------------------
+Public Function GetCpuCoreCount()
+    GetCpuCoreCount = Environ("NUMBER_OF_PROCESSORS")
+End Function
+
+'--------------------------------------------------------------------------------
 ' Excelのバージョンを取得する。
 ' Office365の場合は、購入時のバージョンとなる。
 ' https://ja.wikipedia.org/wiki/Microsoft_Excel#%E6%AD%B4%E5%8F%B2
