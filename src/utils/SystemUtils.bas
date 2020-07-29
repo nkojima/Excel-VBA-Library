@@ -56,8 +56,8 @@ End Function
 '
 ' return：環境変数のPATHを構成しているフォルダパスの配列。
 '--------------------------------------------------------------------------------
-Public Function GetPathList() As String()
-    GetPathList = Split(Environ("PATH"), ";")
+Public Function GetPathArray() As String()
+    GetPathArray = Split(Environ("PATH"), ";")
 End Function
 
 '--------------------------------------------------------------------------------
