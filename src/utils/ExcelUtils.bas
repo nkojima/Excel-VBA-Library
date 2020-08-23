@@ -36,3 +36,50 @@ Public Function GetExcelVersion() As String
             GetExcelVersion = "Unknown Version"
     End Select
 End Function
+
+'--------------------------------------------------------------------------------
+' 参照設定しているライブラリ名の一覧を返す。
+' ※［オプション］から［セキュリティセンター］に入り、
+' 「VBAプロジェクトオブジェクトモデルへのアクセスを信頼する」にチェックを入れる。
+' http://officetanaka.net/excel/vba/tips/tips100.htm
+'
+' return：参照設定しているライブラリ名の配列。
+'--------------------------------------------------------------------------------
+Public Function GetReferences() As String()
+
+    Dim references() As String
+    Dim count As Long
+    Dim ref As Variant
+    
+    For Each ref In ActiveWorkbook.VBProject.references
+        ReDim Preserve references(count)
+        references(count) = ref.Name & "," & ref.Description
+        count = count + 1
+    Next ref
+    
+    GetReferences = references
+    
+End Function
+
+'--------------------------------------------------------------------------------
+' 参照不可のライブラリがないことを検証する。
+' ※［オプション］から［セキュリティセンター］に入り、
+' 「VBAプロジェクトオブジェクトモデルへのアクセスを信頼する」にチェックを入れる。
+' http://officetanaka.net/excel/vba/tips/tips100.htm
+'
+' return：参照不可のライブラリが存在しなければTrue、
+'         参照不可のライブラリが存在すればFalseを返す。
+'--------------------------------------------------------------------------------
+Public Function ValidateReferences() As Boolean
+
+    Dim ref As Variant
+    
+    For Each ref In ActiveWorkbook.VBProject.references
+        If ref.IsBroken Then
+            ValidateReferences = False
+            End Function
+        End If
+    Next ref
+    
+    ValidateReferences = True
+End Function
