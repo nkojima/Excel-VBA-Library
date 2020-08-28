@@ -31,6 +31,10 @@ This repository is an reusable Excel VBA components.
 
 ### SystemUtils.bas
 
+# Requirement
+
+- Microsoft Excel 2013 (v15.0) or later.
+
 # Author
 
 nkojima
