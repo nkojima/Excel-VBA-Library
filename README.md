@@ -1,6 +1,7 @@
 # Excel VBA Library
 
 # Features
+
 This repository is an reusable Excel VBA components.
 
 # Components
@@ -9,11 +10,17 @@ This repository is an reusable Excel VBA components.
 
 ### Logger.bas
 
+- Logger module is used to log messages for application.
+
 ## net
 
 ### HttpClient.bas
 
+- An HttpClient can be used to send requests and retrieve their responses with TLS v1.2.
+
 ### URL.bas
+
+- URL encodes the argument.
 
 ## utils
 
