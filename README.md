@@ -51,3 +51,7 @@ This repository is an reusable Excel VBA components.
 # Author
 
 nkojima
+
+# License
+
+"Excel VBA Library" is under MIT license.
