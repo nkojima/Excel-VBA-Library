@@ -10,23 +10,27 @@ This repository is an reusable Excel VBA components.
 
 ### Logger.bas
 
-- Logger module is used to log messages for application.
+- This module is used to log messages for application.
 
 ## net
 
 ### HttpClient.bas
 
-- An HttpClient can be used to send requests and retrieve their responses with TLS v1.2.
+- This module can be used to send requests and retrieve their responses with TLS v1.2.
 
 ### URL.bas
 
-- URL encodes the argument.
+- URL-encodes the argument.
 
 ## utils
 
 ### DateUtils.bas
 
+- This module contains a lot of functions manipulating Dates or Calendars.
+
 ### DigestUtils.bas
+
+- Calculate digest checksum (MD5, SHA1, SHA256, and so on) of the argument.
 
 ### ExcelUtils.bas
 
@@ -35,6 +39,8 @@ This repository is an reusable Excel VBA components.
 ### NumberUtils.bas
 
 ### StringUtils.bas
+
+- This module contains a lot of functions manipulating Strings.
 
 ### SystemUtils.bas
 
