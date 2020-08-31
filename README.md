@@ -36,6 +36,8 @@ This repository is an reusable Excel VBA components.
 
 ### FileUtils.bas
 
+- This module contains a lot of functions manipulating Files or Folders.
+
 ### NumberUtils.bas
 
 ### StringUtils.bas
