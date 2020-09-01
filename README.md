@@ -40,6 +40,8 @@ This repository is an reusable Excel VBA components.
 
 ### NumberUtils.bas
 
+- This module contains a lot of functions manipulating Numbers.
+
 ### StringUtils.bas
 
 - This module contains a lot of functions manipulating Strings.
