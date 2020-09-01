@@ -20,7 +20,7 @@ This repository is an reusable Excel VBA components.
 
 ### URL.bas
 
-- URL-encodes the argument.
+- You can URL-encode the argument.
 
 ## utils
 
@@ -30,9 +30,11 @@ This repository is an reusable Excel VBA components.
 
 ### DigestUtils.bas
 
-- Calculate digest checksum (MD5, SHA1, SHA256, and so on) of the argument.
+- You can calculate digest checksum (MD5, SHA1, SHA256, and so on) of the argument.
 
 ### ExcelUtils.bas
+
+- You can get "Object Library Reference" in VBA.
 
 ### FileUtils.bas
 
