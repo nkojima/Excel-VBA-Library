@@ -50,6 +50,8 @@ This repository is an reusable Excel VBA components.
 
 ### SystemUtils.bas
 
+- This module is used to get system environment variables and hardware information.
+
 # Requirement
 
 - Microsoft Excel 2013 (v15.0) or later.
