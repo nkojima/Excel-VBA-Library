@@ -73,13 +73,15 @@ End Function
 Public Function ValidateReferences() As Boolean
 
     Dim ref As Variant
+    Dim result As Boolean
+    result = True
     
     For Each ref In ActiveWorkbook.VBProject.references
         If ref.IsBroken Then
-            ValidateReferences = False
-            End Function
+            result = False
+            Exit For
         End If
     Next ref
     
-    ValidateReferences = True
+    ValidateReferences = result
 End Function
