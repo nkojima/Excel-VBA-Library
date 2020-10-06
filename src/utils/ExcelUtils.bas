@@ -32,7 +32,7 @@ Public Function GetExcelVersion() As String
             GetExcelVersion = "Excel 2002"
         Case "9.0"
             GetExcelVersion = "Excel 2000"
-        Else
+        Case Else
             GetExcelVersion = "Unknown Version"
     End Select
 End Function
