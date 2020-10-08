@@ -32,3 +32,13 @@ Sub Test_Initialize()
     ' シートが存在しない時（＝初期化が完了していない時）はテストを停止させる。
     Debug.Assert existsSheet
 End Sub
+
+'--------------------------------------------------------------------------------
+' ログのシートの見出しをセットする。
+'--------------------------------------------------------------------------------
+Public Sub Test_SetColumnName()
+    Call Logger.SetColumnName
+    
+    ' A1セルが「日時」でない時（＝見出しがセットされていない時）はテストを停止させる。
+    Debug.Assert (ThisWorkbook.Worksheets(LOG_SHEET_NAME).Range("A1").Value = "日時")
+End Sub
