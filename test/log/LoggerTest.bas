@@ -7,7 +7,15 @@ Option Explicit
 ' ログ出力先となるシート名@ThisWorkbook
 Private Const LOG_SHEET_NAME As String = "ログ"
 
+'--------------------------------------------------------------------------------
+' ログのシートを初期化する。
+'--------------------------------------------------------------------------------
 Sub Test_Initialize()
+    ' ログのシートを消す。
+    Application.DisplayAlerts = False
+    ThisWorkbook.Worksheets(LOG_SHEET_NAME).Delete
+    Application.DisplayAlerts = True
+
     Call Logger.Initialize
     
     ' 初期化が完了していれば、ログのシートが存在するはず。
