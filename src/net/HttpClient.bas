@@ -29,12 +29,22 @@ End Sub
 '--------------------------------------------------------------------------------
 Public Function GetPage(url As String) As String
     httpObj.Open "GET", url
-    httpObj.Send
+    httpObj.send
 
     ' readyState=4で読み込みが完了
     Do While httpObj.readyState < 4
         DoEvents
     Loop
 
-    GetPage = httpObj.responseText
+    Dim statusCode As Integer
+    statusCode = httpObj.Status
+    
+    ' HTTPのステータスコードが200(OK)以外であれば、ステータスコードなどを返す。
+    If (statusCode = 200) Then
+        'GetPage = httpObj.responseText ' レスポンスの文字コードがShift_JIS(MS932)の時はこちらを使う。
+        GetPage = StrConv(httpObj.responseBody, vbUnicode)
+    Else
+        GetPage = "HTTP StatusCode:" & statusCode & ", HTTP StatusText:" & httpObj.statusText
+    End If
+
 End Function
