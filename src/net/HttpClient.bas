@@ -48,3 +48,32 @@ Public Function GetPage(url As String) As String
     End If
 
 End Function
+
+'--------------------------------------------------------------------------------
+' 引数のURLにPostメソッドで送信する。
+'
+' url：URL文字列。
+' urlParams：URLパラメーター。
+' return：レスポンスの文字列。
+'--------------------------------------------------------------------------------
+Public Function PostContents(url As String, urlParams As String) As String
+    httpObj.Open "POST", url, False
+    httpObj.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+    httpObj.send (urlParams)
+    
+    ' readyState=4で読み込みが完了
+    Do While httpObj.readyState < 4
+        DoEvents
+    Loop
+
+    Dim statusCode As Integer
+    statusCode = httpObj.Status
+
+    ' HTTPのステータスコードが200(OK)以外であれば、ステータスコードなどを返す。
+    If (statusCode = 200) Then
+        'PostContents = httpObj.responseText ' レスポンスの文字コードがShift_JIS(MS932)の時はこちらを使う。
+        PostContents = StrConv(httpObj.responsebody, vbUnicode)
+    Else
+        PostContents = "HTTP StatusCode:" & statusCode & ", HTTP StatusText:" & httpObj.statusText
+    End If
+End Function
