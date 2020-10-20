@@ -22,6 +22,6 @@ Public Sub Test_PostContents()
 
     Dim response As String
     ' レスポンスはUTF-8。
-    response = httpObj.PostContents("http://httpbin.org/post", "?param1=abc&param2=123")
+    response = httpObj.PostContents("http://httpbin.org/post", "param1=abc&param2=123")
     Debug.Print response
 End Sub
