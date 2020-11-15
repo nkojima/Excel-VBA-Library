@@ -27,18 +27,16 @@ Public Sub Initialize()
         ActiveSheet.Name = LOG_SHEET_NAME
     End If
     
-    ' ログのシートをクリアして、見出しを再設定する。
-    With ThisWorkbook.Worksheets(LOG_SHEET_NAME)
-        .Cells.ClearContents
-    End With
-    Call SetColumnName
+    ' ログのシートをクリアして､見出しを再設定する｡
+    Call Clear
 End Sub
 
 '--------------------------------------------------------------------------------
-' ログのシートの見出しをセットする。
+' ログのシートをクリアして､見出しを再設定する｡
 '--------------------------------------------------------------------------------
-Public Sub SetColumnName()
+Public Sub Clear()
     With ThisWorkbook.Worksheets(LOG_SHEET_NAME)
+        .Cells.ClearContents
         .Range("A1").Value = "日時"
         .Range("B1").Value = "ログレベル"
         .Range("C1").Value = "内容"

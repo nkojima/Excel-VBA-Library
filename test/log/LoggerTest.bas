@@ -31,10 +31,10 @@ Sub Test_Initialize()
 End Sub
 
 '--------------------------------------------------------------------------------
-' ログのシートの見出しをセットする。
+' ログのシートをクリアして､見出しを再設定する｡
 '--------------------------------------------------------------------------------
-Public Sub Test_SetColumnName()
-    Call Logger.SetColumnName
+Public Sub Test_Clear()
+    Call Logger.Clear
     
     ' A1セルが「日時」でない時（＝見出しがセットされていない時）はテストを停止させる。
     Debug.Assert (ThisWorkbook.Worksheets(Logger.LOG_SHEET_NAME).Range("A1").Value = "日時")
