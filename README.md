@@ -22,6 +22,12 @@ This repository is an reusable Excel VBA components.
 
 - You can URL-encode the argument.
 
+## stats
+
+### Correlation.bas
+
+- This module is used to calc correlation coefficient.
+
 ## utils
 
 ### DateUtils.bas
