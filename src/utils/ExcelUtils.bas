@@ -62,6 +62,20 @@ Public Function GetReferences() As String()
 End Function
 
 '--------------------------------------------------------------------------------
+' Excelが64bitであるかを判定する。
+' https://www.ozgrid.com/forum/index.php?thread/137842-determine-32-vs-64-bit-test-compatibility/
+'
+' return：Excelが64bit版であればTrue、32bit版であればFalseを返す。
+'--------------------------------------------------------------------------------
+Public Function Is64BitExcel() As Boolean
+    #If Win64 Then
+        Is64BitExcel = True
+    #Else
+        Is64BitExcel = False
+    #End If
+End Function
+
+'--------------------------------------------------------------------------------
 ' 参照不可のライブラリがないことを検証する。
 ' ※［オプション］から［セキュリティセンター］に入り、
 ' 「VBAプロジェクトオブジェクトモデルへのアクセスを信頼する」にチェックを入れる。
