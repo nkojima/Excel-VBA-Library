@@ -5,12 +5,15 @@ Option Explicit
 '--------------------------------------------------------------------------------
 
 '--------------------------------------------------------------------------------
-' 引数のファイルパスが存在するかを確認する。
+' 指定したファイルパスが存在するかを判定する。
 '
-' path：対象となるファイルパス。
-' return：ファイルが存在すればTrue、存在しなければFalseを返す。
+' path：対象となるパス。
+' return：ファイルが存在すればTrue、存在しなければFalseが返される。
 '--------------------------------------------------------------------------------
-Public Function ExistsFile(path As String) As Boolean
+Function ExistsFile(path As String) As Boolean
+    ' パスの末尾が「\」であってもフォルダパスとして認識されるように、末尾の「\」を除去する。
+    path = RemoveLastChar(path)
+
     If (Dir(path) <> "") Then
         ExistsFile = True
     Else
@@ -19,60 +22,20 @@ Public Function ExistsFile(path As String) As Boolean
 End Function
 
 '--------------------------------------------------------------------------------
-' 引数のフォルダパスが存在するかを確認する。
+' 指定したパスが有効なフォルダパスであるかを判定する。
 '
-' path：対象となるフォルダパス。
-' return：フォルダが存在すればTrue、存在しなければFalseを返す。
+' path：対象となるパス。
+' return：フォルダが存在すればTrue、存在しなければFalseが返される。
 '--------------------------------------------------------------------------------
-Public Function ExistsFolder(path As String) As Boolean
+Function ExistsFolder(path As String) As Boolean
+    ' パスの末尾が「\」であってもフォルダパスとして認識されるように、末尾の「\」を除去する。
+    path = RemoveLastChar(path)
+
     If (Dir(path, vbDirectory) <> "" And Dir(path) = "") Then
         ExistsFolder = True
     Else
         ExistsFolder = False
     End If
-End Function
-
-'--------------------------------------------------------------------------------
-' 指定したパスが有効なファイルパスであるかを判定する。
-'
-' path：対象となるパス。
-' return：パスがファイルパスであればTrue、そうでなければFalseが返される。
-'--------------------------------------------------------------------------------
-Function IsFile(path As String) As Boolean
-    If (Dir(path) <> "") Then
-        IsFile = True
-    Else
-        IsFile = False
-    End If
-End Function
-
-'--------------------------------------------------------------------------------
-' 指定したパスが有効なフォルダパスであるかを判定する。
-'
-' path：対象となるパス。
-' return：パスがフォルダパスであればTrue、そうでなければFalseが返される。
-'--------------------------------------------------------------------------------
-Function IsFolder(path As String) As Boolean
-    If (Exists(path)) Then
-        ' GetAttr関数でファイル属性を調べる。
-        If (GetAttr(path) = vbDirectory) Then
-            IsFolder = True
-        Else
-            IsFolder = False
-        End If
-    Else
-        IsFolder = False
-    End If
-End Function
-
-'--------------------------------------------------------------------------------
-' ファイルパスからファイル名を取得する。
-'
-' path：対象となるファイルパス。
-' return：ファイル名。ファイルが存在しない時は空文字が返される。
-'--------------------------------------------------------------------------------
-Public Function GetBaseName(path As String) As String
-    GetBaseName = Dir(path)
 End Function
 
 '--------------------------------------------------------------------------------
@@ -82,6 +45,9 @@ End Function
 ' return：拡張子名。ファイルが存在しない時、拡張子が存在しない時は空文字が返される。
 '--------------------------------------------------------------------------------
 Public Function GetExtensionName(path As String) As String
+    ' パスの末尾が「\」であってもフォルダパスとして認識されるように、末尾の「\」を除去する。
+    path = RemoveLastChar(path)
+
     Dim fileName As String
     fileName = Dir(path)
     
@@ -93,4 +59,30 @@ Public Function GetExtensionName(path As String) As String
         ' ファイルが存在しない時は空文字を返す。
         GetExtensionName = ""
     End If
+End Function
+
+'--------------------------------------------------------------------------------
+' ファイルパスからファイル名を取得する。
+'
+' path：対象となるファイルパス。
+' return：ファイル名。ファイルが存在しない時は空文字が返される。
+'--------------------------------------------------------------------------------
+Public Function GetFileName(path As String) As String
+    GetFileName = Dir(path)
+End Function
+
+'--------------------------------------------------------------------------------
+' パスの末尾が「\」であれば除去する。
+'
+' path：対象となるファイルパス。
+' return：パスの末尾の「\」を除去した文字列。
+'--------------------------------------------------------------------------------
+Private Function RemoveLastChar(path As String) As String
+    Dim lastChar As String
+    lastChar = Right(path, 1)
+    If (lastChar = "\") Then
+        path = Left(path, Len(path) - 1)
+    End If
+    
+    RemoveLastChar = path
 End Function
