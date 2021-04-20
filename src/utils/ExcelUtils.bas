@@ -19,7 +19,7 @@ Public Function GetExcelVersion() As String
     Select Case version
         Case "16.0"
             ' Excel2019もVersionが16.0なので、Excel2016として判定されてしまう。
-            GetExcelVersion = "Excel 2016"
+            GetExcelVersion = "Excel 2016 or later"
         Case "15.0"
             GetExcelVersion = "Excel 2013"
         Case "14.0"
