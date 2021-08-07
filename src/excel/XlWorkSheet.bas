@@ -8,12 +8,12 @@ Option Explicit
 ' return: 最終列の列番号。
 '------------------------------------------------------------------------------
 
-Function GetLastCol(sheetName As String) As Long
+Function GetLastColumn(sheetName As String) As Long
 
     Dim lastCol As Long
     lastCol = Worksheets(sheetName).Cells(1, Columns.count).End(xlToLeft).Column
 
-    GetLastCol = lastCol
+    GetLastColumn = lastCol
 
 End Function
 
