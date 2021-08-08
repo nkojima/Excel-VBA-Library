@@ -9,8 +9,8 @@ Option Explicit
 '
 ' return：CPUの論理コア数（スレッド数）。
 '--------------------------------------------------------------------------------
-Public Function GetCpuCoreCount()
-    GetCpuCoreCount = Environ("NUMBER_OF_PROCESSORS")
+Public Function GetCpuCores()
+    GetCpuCores = Environ("NUMBER_OF_PROCESSORS")
 End Function
 
 '--------------------------------------------------------------------------------
