@@ -11,7 +11,7 @@ Option Explicit
 Function GetLastColumn(sheetName As String) As Long
 
     Dim lastCol As Long
-    lastCol = Worksheets(sheetName).Cells(1, Columns.count).End(xlToLeft).Column
+    lastCol = Worksheets(sheetName).Cells(1, Columns.count).End(xlToLeft).Column    ' 1行目の最終列を取得する。
 
     GetLastColumn = lastCol
 
@@ -27,7 +27,7 @@ End Function
 Function GetLastRow(sheetName As String) As Long
 
     Dim lastRow As Long
-    lastRow = Worksheets(sheetName).Cells(Rows.count, 1).End(xlUp).Row
+    lastRow = Worksheets(sheetName).Cells(Rows.count, 1).End(xlUp).Row  ' 1列目の最終行を取得する。
 
     GetLastRow = lastRow
 
